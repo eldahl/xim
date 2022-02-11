@@ -146,11 +146,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="MenuBar.cpp" />
     <ClCompile Include="tinyfiledialogs.c" />
+    <ClCompile Include="Window.cpp" />
+    <ClCompile Include="WorkArea.cpp" />
     <ClCompile Include="xim.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="MenuBar.h" />
     <ClInclude Include="tinyfiledialogs.h" />
+    <ClInclude Include="Window.h" />
+    <ClInclude Include="WorkArea.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
