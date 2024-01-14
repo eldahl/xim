@@ -1,4 +1,4 @@
-# xim - cross platform image manipulator
+# xim - Cross-Platform Image Manipulator
 
 This is an attept at writing an image manipulator for learning purposes
 
