@@ -73,7 +73,20 @@ int main(int argc, char* argv[]) {
 			SDL_PushEvent(&mainEvent);
 			break;
 		case SDL_WINDOWEVENT:
-			if (mainEvent.window.event == SDL_WINDOWEVENT_RESIZED) {
+			switch (mainEvent.window.event) {
+
+			case SDL_WINDOWEVENT_SHOWN:
+				// Window SDL Surface is invalidated on resize, so we have to get the new one.
+				SDL_Log("Debug: Shown Surface");
+
+				// Redraw workspace
+				SDL_FillRect(screenSurface, NULL, SDL_MapRGB(screenSurface->format, 0xFF, 0xFF, 0xFF));
+				if(image)
+					SDL_BlitSurface(image, NULL, screenSurface, NULL);
+				SDL_UpdateWindowSurface(sdlwindow);
+				break;
+
+			case SDL_WINDOWEVENT_RESIZED:
 				// Window SDL Surface is invalidated on resize, so we have to get the new one.
 				screenSurface = SDL_GetWindowSurface(sdlwindow);
 				SDL_Log("Debug: Resized and got new Window SDL Surface");
@@ -83,6 +96,7 @@ int main(int argc, char* argv[]) {
 				if(image)
 					SDL_BlitSurface(image, NULL, screenSurface, NULL);
 				SDL_UpdateWindowSurface(sdlwindow);
+				break;
 			}
 			break;
 		case SDL_SYSWMEVENT:
