@@ -31,17 +31,15 @@ int main(int argc, char* argv[]) {
 
 	//Create window
 	xim_window window = xim_window("xim - cross image manipulator",
-							SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600,
-							SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
-							sdlwindow = window.GetSDLWindow();
+					SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600,
+					SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
+	sdlwindow = window.GetSDLWindow();
 	
 	if (sdlwindow) {
-
 #if defined(_WIN32)
 		windowHandle = window.GetSDLWinHandle(sdlwindow);
 		window.ActivateMenu(windowHandle);
 #endif
-	
 		screenSurface = SDL_GetWindowSurface(sdlwindow);
 
 		//Fill the surface with white
